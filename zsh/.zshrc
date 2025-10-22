@@ -115,3 +115,6 @@ setopt HIST_REDUCE_BLANKS     # trim unnecessary spaces
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
