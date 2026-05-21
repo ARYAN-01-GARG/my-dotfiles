@@ -1,0 +1,27 @@
+# ──────────────────────────────────────────────────────────────
+# Runtime / marker files in dotfiles
+# ──────────────────────────────────────────────────────────────
+hypr/.config/hypr/.initial_startup_done
+mpd/.config/mpd/mpd.db
+mpd/.config/mpd/mpd.log
+mpd/.config/mpd/mpd.pid
+mpd/.config/mpd/mpdstate
+
+# ──────────────────────────────────────────────────────────────
+# Tmux plugins — installed at runtime by TPM, not committed
+# ──────────────────────────────────────────────────────────────
+tmux/.config/tmux/.tmux/plugins/
+
+# ──────────────────────────────────────────────────────────────
+# Python bytecode / caches
+# ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+
+# ──────────────────────────────────────────────────────────────
+# Editor / OS junk
+# ──────────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+*~
+*.bak
