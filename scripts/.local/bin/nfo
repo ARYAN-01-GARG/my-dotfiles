@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# nfo: An aesthetic retro cheatsheet viewer / system presentation
+# Displays custom ASCII art and double-bordered tables of all your custom hotkeys!
+
+C_CYAN="\e[36m"
+C_GREEN="\e[32m"
+C_YELLOW="\e[33m"
+C_MAGENTA="\e[35m"
+C_BLUE="\e[34m"
+C_BOLD="\e[1m"
+C_RESET="\e[0m"
+
+clear
+echo -e "${C_CYAN}${C_BOLD}"
+cat << "EOF"
+ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄   ▄▄▄▄▄▄▄    ███▄▄▄▄      ████████▄  ▄████████    ▄████████    ▄████████ 
+█       █       █      ▀██       █   ██  ▀███     ██   ▀███ ███    ███   ███    ███   ███    ███ 
+█   ▄   █   ▄   █  ▄    █▀   ▄   █   ██    ██     ██    ███ ███    ███   ███    █▀    ███    █▀  
+█  █ █  █  █ █  █  █ █  █ █  █ █  █   ██    ██     ██    ███ ███    ███  ▄███▄▄▄       ███        
+█  █▄█  █  █▄█  █  █ █  █ █  █▄█  █   ██    ██     ██    ███ ███    ███ ▀▀███▀▀▀     ▀███████████ 
+█       █       █  █ █  █ █       █   ██    ██     ██   ▄███ ███    ███   ███    █▄           ███ 
+█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄█ █▄▄█ █▄▄▄▄▄▄▄█    ▀█   █▀     ████████▀  ▀████████▀    ███    ███    ▄█    ███ 
+                                                                           ███    ███  ▄████████▀  
+EOF
+echo -e "${C_RESET}"
+
+echo -e "${C_BOLD}${C_MAGENTA}╔══════════════════════════════════════════════════════════════════════════════════════╗${C_RESET}"
+echo -e "${C_BOLD}${C_MAGENTA}║                      ARYAN'S CENTRAL DOTFILES SYSTEM CHEATSHEET                      ║${C_RESET}"
+echo -e "${C_BOLD}${C_MAGENTA}╚══════════════════════════════════════════════════════════════════════════════════════╝${C_RESET}"
+
+echo -e "\n${C_BOLD}${C_GREEN}⚡ NEOVIM KEYBINDINGS (LazyVim)${C_RESET}"
+echo -e "  ${C_BOLD}-  ${C_RESET}                   : Open parent directory with Oil.nvim"
+echo -e "  ${C_BOLD}<leader>te${C_RESET}           : Open file explorer (Oil.nvim)"
+echo -e "  ${C_BOLD}<C-a>${C_RESET}                 : Select all text in buffer"
+echo -e "  ${C_BOLD}Visual J / K${C_RESET}         : Move selected visual block down / up"
+echo -e "  ${C_BOLD}Visual < / >${C_RESET}         : Indent block and keep visual selection active"
+echo -e "  ${C_BOLD}<leader>sv / sh${C_RESET}      : Split window vertically / horizontally"
+echo -e "  ${C_BOLD}<leader>nh${C_RESET}           : Clear search highlighting"
+echo -e "  ${C_BOLD}<S-h> / <S-l>${C_RESET}         : Go to previous / next buffer tab"
+
+echo -e "\n${C_BOLD}${C_BLUE}🪐 TMUX SUPERCHARGED UTILITIES${C_RESET}"
+echo -e "  ${C_BOLD}prefix + Ctrl-y${C_RESET}      : Floating Yazi (File Explorer)"
+echo -e "  ${C_BOLD}prefix + Ctrl-g${C_RESET}      : Floating Lazygit window"
+echo -e "  ${C_BOLD}prefix + Ctrl-t${C_RESET}      : Floating Quick Shell terminal"
+echo -e "  ${C_BOLD}prefix + Ctrl-m${C_RESET}      : Floating Music Player Client (rmpc)"
+echo -e "  ${C_BOLD}prefix + d${C_RESET}           : Interactive floating configuration selector menu"
+echo -e "  ${C_BOLD}prefix + f${C_RESET}           : Run custom tmux-sessionizer project connector"
+echo -e "  ${C_BOLD}prefix + o${C_RESET}           : Run tmux-sessionx list"
+echo -e "  ${C_BOLD}bind x${C_RESET}               : Instantly kill current pane (no prompts)"
+
+echo -e "\n${C_BOLD}${C_YELLOW}⌨️  KEYD ADVANCED HARDWARE REMAP${C_RESET}"
+echo -e "  ${C_BOLD}Capslock (tap)${C_RESET}       : Escape key"
+echo -e "  ${C_BOLD}Capslock (hold) + hjkl${C_RESET}: Vim navigation keys (left, down, up, right)"
+echo -e "  ${C_BOLD}Capslock + u/d/i/o${C_RESET}   : PageUp, PageDown, Home, End"
+echo -e "  ${C_BOLD}Capslock + z/x/c/v${C_RESET}   : Undo, Cut, Copy, Paste macros"
+echo -e "  ${C_BOLD}v / m (hold)${C_RESET}         : Symbol layer (brackets, operators, modifiers)"
+echo -e "  ${C_BOLD}b / n (hold)${C_RESET}         : Media & Function layer (F1-F12, brightness, vol)"
+
+echo -e "\n${C_BOLD}${C_MAGENTA}🚀 PORTABLE STOW UTILITIES${C_RESET}"
+echo -e "  ${C_BOLD}confz${C_RESET}                : Edit Zsh config from anywhere"
+echo -e "  ${C_BOLD}conft${C_RESET}                : Edit Tmux config from anywhere"
+echo -e "  ${C_BOLD}confv${C_RESET}                : Edit Neovim configuration"
+echo -e "  ${C_BOLD}confh${C_RESET}                : Edit Hyprland desktop config"
+echo -e "  ${C_BOLD}setup.sh${C_RESET}             : One-click restore complete setup on any laptop"
+echo -e ""

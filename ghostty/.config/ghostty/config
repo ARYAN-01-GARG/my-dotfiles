@@ -1,0 +1,54 @@
+# 🛸 ARYAN'S GHOSTTY MODERN TERMINAL CONFIGURATION
+# Pulling the best of Kitty (Fantasque font, transparency, margins) and adding Ghostty's glassmorphism!
+
+# ──────────────────────────────────────────────────────────────
+# Fonts & Typography (Ported from your Kitty settings)
+# ──────────────────────────────────────────────────────────────
+font-family = FantasqueSansM Nerd Font Mono
+font-size = 14
+bold-is-bright = false
+adjust-cell-height = 10%
+
+# ──────────────────────────────────────────────────────────────
+# Window & Glassmorphism Aesthetics (Stunning visual blur!)
+# ──────────────────────────────────────────────────────────────
+background-opacity = 0.90
+background-blur = true
+background-blur-radius = 60
+
+window-padding-x = 6
+window-padding-y = 6
+window-height = 32
+window-width = 110
+window-save-state = always
+window-theme = dark
+unfocused-split-opacity = 0.6
+
+# ──────────────────────────────────────────────────────────────
+# Cursor & Mouse Customizations
+# ──────────────────────────────────────────────────────────────
+cursor-style = bar
+cursor-style-blink = true
+mouse-hide-while-typing = true
+
+# ──────────────────────────────────────────────────────────────
+# General Terminal Settings & Keybinds
+# ──────────────────────────────────────────────────────────────
+term = xterm-ghostty
+title = GhosTTY
+shell-integration = detect
+shell-integration-features = cursor,sudo
+confirm-close-surface = false
+gtk-single-instance = true
+wait-after-command = false
+
+# ──────────────────────────────────────────────────────────────
+# Theme & Color Management (Dynamic theme support!)
+# ──────────────────────────────────────────────────────────────
+# Standard Catppuccin theme pre-defined
+theme = Catppuccin Mocha
+
+# Wallust inclusion: Dynamic colors based on wallpaper.
+# DISABLED — overrides Catppuccin Mocha with muddy palette.
+# Re-enable if you want wallpaper-derived colors instead of the theme.
+# config-file = ?~/.config/ghostty/wallust.conf
