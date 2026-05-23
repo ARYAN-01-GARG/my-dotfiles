@@ -1,0 +1,179 @@
+/* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
+/* ....Wallust Transparent - Premium Glassmorphic Capsule........ */
+/* --- Designed specifically for Aryan's custom Arch setup --- */
+
+@import '../../.config/waybar/wallust/colors-waybar.css';
+
+@define-color critical #ff3c3c; /* critical color */
+@define-color warning #f3f809;  /* warning color */
+@define-color text @color12;  /* text color */
+@define-color text-alt @color13;  /* text alternative color */
+@define-color bg @color7;  /* background color */
+
+*{
+	font-family: "JetBrainsMono Nerd Font";
+	font-weight: bold;
+	min-height: 0;	
+	font-size: 96%;
+	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+	
+window#waybar {
+	background: transparent;
+	color: @text;
+}
+	
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+window#waybar.empty {
+	background-color: transparent;
+}
+	
+window#waybar.empty #window {
+   padding: 0px;
+   border: 0px;
+   background-color: transparent;
+} 
+
+tooltip {
+	color: @color12;
+	background: rgba(20, 20, 30, 0.85);
+	backdrop-filter: blur(10px);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+	padding: 8px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Premium Glassmorphic Capsule Layout Rules
+   ────────────────────────────────────────────────────────────── */
+#workspaces,
+#clock,
+#pulseaudio,
+#backlight,
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray,
+#mpris,
+#custom-menu,
+#custom-power,
+#custom-swaync,
+#custom-weather,
+#custom-settings,
+#custom-updater,
+#custom-keybinds {
+	background: rgba(15, 15, 23, 0.42); /* Sleek translucent dark glass */
+	backdrop-filter: blur(14px); /* True premium GPU blur */
+	border: 1px solid rgba(255, 255, 255, 0.08); /* Clean, thin glass border */
+	border-radius: 14px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 12px;
+	padding-left: 12px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 4px;
+	margin-right: 4px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35); /* Elegant drop shadow */
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Subtle micro-glow border adjustments on active states / hovers */
+#workspaces:hover,
+#clock:hover,
+#pulseaudio:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover {
+	border-color: rgba(255, 255, 255, 0.18);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+	background: rgba(20, 20, 32, 0.52);
+}
+
+/* Workspaces specific pill button designs */
+#workspaces button {
+	color: @text-alt;
+   	box-shadow: none;
+	text-shadow: none;
+   	padding-left: 6px;
+   	padding-right: 6px;
+	margin: 0 2px;
+   	border-radius: 8px;
+   	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+   
+#workspaces button.active {
+	color: whitesmoke;
+	background: rgba(255, 255, 255, 0.15);
+   	border-radius: 8px;
+   	padding-left: 10px;
+   	padding-right: 10px;
+   	transition: all 0.2s ease-in-out;
+}
+  
+#workspaces button.focused {
+	color: whitesmoke;
+}
+   
+#workspaces button.urgent {
+	color: #ff3c3c;
+	background: rgba(255, 60, 60, 0.15);
+	border-radius: 8px;
+}
+
+#workspaces button:hover {
+	color: whitesmoke;
+	background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+/* Indicators */
+#custom-hypridle.notactive,
+#idle_inhibitor.activated {
+	color: #39FF14;
+}
+	   
+#battery.critical:not(.charging) {
+	color: @critical;
+	animation-name: blink;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#battery.charging {
+	color: #39FF14;
+}
+
+/* Volume/Backlight Slider Integration */
+#backlight-slider slider,
+#pulseaudio-slider slider {
+	min-width: 0px;
+	min-height: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+	min-width: 80px;  
+	min-height: 8px; 
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+	min-height: 8px; 
+	border-radius: 4px;
+	background-color: @color12;
+}
