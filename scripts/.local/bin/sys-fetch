@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# sys-fetch: A premium, minimalist system information gatherer
+# Custom-designed for Aryan's Arch Linux & Hyprland setup
+
+# Colors
+C_RESET="\e[0m"
+C_BOLD="\e[1m"
+C_BLUE="\e[34m"
+C_CYAN="\e[36m"
+C_GREEN="\e[32m"
+C_MAGENTA="\e[35m"
+C_YELLOW="\e[33m"
+C_RED="\e[31m"
+
+# Icons & Specs
+OS="Arch Linux"
+KERNEL=$(uname -r)
+SHELL=$(basename "$SHELL")
+WM="Hyprland"
+TERMINAL="Ghostty / Kitty"
+UPTIME=$(uptime -p | sed 's/up //')
+PACKAGES=$(pacman -Q | wc -l)
+CPU=$(lscpu | grep "Model name:" | sed 's/Model name:[[:space:]]*//' | cut -d'@' -f1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+RAM_USED=$(free -h | awk '/Mem:/ {print $3}')
+RAM_TOTAL=$(free -h | awk '/Mem:/ {print $2}')
+
+# Logo / ASCII Banner
+LOGO_1="   /\    "
+LOGO_2="  /  \   "
+LOGO_3=" / /\ \  "
+LOGO_4="/ /  \ \ "
+LOGO_5="/_/    \_\ "
+
+echo -e ""
+echo -e "${C_CYAN}${C_BOLD}${LOGO_1}   SYSTEM INFO ${C_RESET}"
+echo -e "${C_CYAN}${C_BOLD}${LOGO_2}   ${C_RESET}─────────────"
+echo -e "${C_CYAN}${C_BOLD}${LOGO_3}   ${C_BOLD}${C_BLUE}OS      ${C_RESET}: $OS"
+echo -e "${C_CYAN}${C_BOLD}${LOGO_4}   ${C_BOLD}${C_GREEN}WM      ${C_RESET}: $WM"
+echo -e "${C_CYAN}${C_BOLD}${LOGO_5}   ${C_BOLD}${C_YELLOW}SHELL   ${C_RESET}: $SHELL"
+echo -e "         ${C_BOLD}${C_MAGENTA}TERM    ${C_RESET}: $TERMINAL"
+echo -e "         ${C_BOLD}${C_CYAN}UPTIME  ${C_RESET}: $UPTIME"
+echo -e "         ${C_BOLD}${C_RED}PACKS   ${C_RESET}: $PACKAGES (pacman)"
+echo -e "         ${C_BOLD}${C_GREEN}RAM     ${C_RESET}: $RAM_USED / $RAM_TOTAL"
+echo -e "         ${C_BOLD}${C_BLUE}CPU     ${C_RESET}: $CPU"
+echo -e ""
+echo -e "   ${C_RED}███${C_GREEN}███${C_YELLOW}███${C_BLUE}███${C_MAGENTA}███${C_CYAN}███${C_RESET}"
+echo -e ""
