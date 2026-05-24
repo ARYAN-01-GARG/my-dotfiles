@@ -137,8 +137,13 @@ alias prismlauncher='QT_QPA_PLATFORM=xcb prismlauncher'
 # tldr (tealdeer): fast cheatsheet — `tldr tar`, `tldr git rebase`
 command -v tldr >/dev/null 2>&1 && alias help='tldr'
 
-# Fuzzy search manual pages
-alias fman='compgen -c | fzf | xargs man'
+# Fuzzy search manual pages — picks from actually-installed man pages
+# (apropos lists everything with a description, with a live man preview).
+fman() {
+    local pick
+    pick=$(apropos . 2>/dev/null | fzf --preview='echo {1} | xargs -r man') || return
+    man "${pick%% *}"
+}
 
 # ──────────────────────────────────────────────────────────────
 # History
