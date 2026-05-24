@@ -33,6 +33,8 @@
 	"custom/separator#dot-line",
 	"hyprland/workspaces#rw",
 	"custom/separator#dot-line",
+	"hyprland/submap",
+	"custom/separator#dot-line",
 	"group/notify"
 	],
 
@@ -40,6 +42,10 @@
 	"group/laptop",
 	"custom/separator#blank",
 	"group/mobo_drawer",
+	"custom/separator#line",
+	"custom/netspeed",
+	"custom/separator#blank",
+	"group/connections",
 	"custom/separator#line",
 	"group/audio",
 	"custom/separator#dot-line",
