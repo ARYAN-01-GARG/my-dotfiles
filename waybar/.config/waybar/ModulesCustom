@@ -91,7 +91,7 @@
 
 "custom/keyboard": {
 	"exec": "$HOME/.config/hypr/scripts/KeyboardLayout.sh status",
-	"interval": 1,
+	"interval": 5,
 	"format": " {}",
 	"on-click": "$HOME/.config/hypr/scripts/KeyboardLayout.sh switch",
 },
@@ -286,5 +286,13 @@
 "custom/arrow10": {
 	"format": "",
 	"tooltip": false
+},
+
+"custom/netspeed": {
+	"exec": "$HOME/.config/waybar/scripts/netspeed.sh",
+	"return-type": "json",
+	"interval": 3,
+	"format": "{}",
+	"tooltip": true
 }
 }
