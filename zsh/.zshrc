@@ -137,8 +137,13 @@ alias prismlauncher='QT_QPA_PLATFORM=xcb prismlauncher'
 # tldr (tealdeer): fast cheatsheet — `tldr tar`, `tldr git rebase`
 command -v tldr >/dev/null 2>&1 && alias help='tldr'
 
-# Fuzzy search manual pages
-alias fman='compgen -c | fzf | xargs man'
+# Fuzzy search manual pages — picks from actually-installed man pages
+# (apropos lists everything with a description, with a live man preview).
+fman() {
+    local pick
+    pick=$(apropos . 2>/dev/null | fzf --preview='echo {1} | xargs -r man') || return
+    man "${pick%% *}"
+}
 
 # ──────────────────────────────────────────────────────────────
 # History
@@ -175,7 +180,11 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 # ──────────────────────────────────────────────────────────────
 # Initializers — order matters. zoxide MUST be absolute-last
 # because it asserts no one else mutates precmd after it.
+# (_ZO_DOCTOR=0 suppresses the precmd-hook order warning; we run
+# zoxide last on purpose, but oh-my-zsh plugins still touch hooks.)
 # ──────────────────────────────────────────────────────────────
+export _ZO_DOCTOR=0
+
 command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)
 
 # starship: prompt (overrides Oh-My-Zsh theme if installed)

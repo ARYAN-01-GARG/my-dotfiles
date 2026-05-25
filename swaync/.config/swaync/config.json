@@ -12,16 +12,16 @@
   "control-center-margin-left": 0,
   "notification-2fa-action": true,
   "notification-inline-replies": false,
-  "notification-icon-size": 24,
-  "notification-body-image-height": 100,
-  "notification-body-image-width": 100,
+  "notification-icon-size": 32,
+  "notification-body-image-height": 64,
+  "notification-body-image-width": 64,
   "notification-window-width": 300,
   "timeout": 6,
   "timeout-low": 3,
   "timeout-critical": 0,
   "fit-to-screen": false,
-  "control-center-width": 450,
-  "control-center-height": 720,
+  "control-center-width": 460,
+  "control-center-height": 860,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
   "transition-time": 200,
@@ -31,11 +31,11 @@
   "widgets": [
       "dnd",
       "buttons-grid",
-      "mpris",
-      "volume", 
-      "backlight",
       "title",
-      "notifications"
+      "notifications",
+      "mpris",
+      "volume",
+      "backlight"
   ],
   "widget-config": {
       "title": {
@@ -84,7 +84,23 @@
               },
               {
                   "label": "󰂯",
-                  "command": "blueman-manager"
+                  "command": "overskride"
+              },
+              {
+                  "label": "󰖔",
+                  "command": "bash -c $HOME/.config/hypr/scripts/Hyprsunset.sh toggle"
+              },
+              {
+                  "label": "󰄄",
+                  "command": "bash -c $HOME/.config/hypr/scripts/ScreenShot.sh --swappy"
+              },
+              {
+                  "label": "󰸉",
+                  "command": "bash -c $HOME/.config/hypr/scripts/ThemeChanger.sh"
+              },
+              {
+                  "label": "󰈋",
+                  "command": "bash -c '(command -v hyprpicker >/dev/null && hyprpicker -a -n) || notify-send -u low \"Color picker\" \"Install hyprpicker: sudo pacman -S hyprpicker\"'"
               }
           ]
       }

@@ -1,55 +1,67 @@
-/* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
-/* ....Wallust Transparent - Premium Glassmorphic Capsule........ */
-/* --- Designed specifically for Aryan's custom Arch setup --- */
+/* ──────────────────────────────────────────────────────────────
+   Liquid Glass — Aryan's waybar
+   Multi-stop gradient capsules + specular highlights + inset
+   3D edges + hover micro-interactions. Pairs with the
+   Hyprland `layerrule = blur, waybar` for true frosted glass.
+   ────────────────────────────────────────────────────────────── */
 
 @import '../../.config/waybar/wallust/colors-waybar.css';
 
-@define-color critical #ff3c3c; /* critical color */
-@define-color warning #f3f809;  /* warning color */
-@define-color text @color12;  /* text color */
-@define-color text-alt @color13;  /* text alternative color */
-@define-color bg @color7;  /* background color */
+@define-color critical    #f38ba8;
+@define-color warning     #f9e2af;
+@define-color success     #a6e3a1;
+@define-color accent      #cba6f7;
+@define-color accent-2    #89b4fa;
+@define-color accent-3    #94e2d5;
+@define-color text-fg     #e8e8f0;
+@define-color text-dim    #b4b4c8;
 
-*{
-	font-family: "JetBrainsMono Nerd Font";
-	font-weight: bold;
-	min-height: 0;	
-	font-size: 96%;
-	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+/* ──────────────────────────────────────────────────────────────
+   Base
+   ────────────────────────────────────────────────────────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    min-height: 0;
+    font-size: 96%;
+    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
-	
+
 window#waybar {
-	background: transparent;
-	color: @text;
-}
-	
-window#waybar.hidden {
-	opacity: 0.2;
+    background: transparent;
+    color: @text-fg;
 }
 
-window#waybar.empty {
-	background-color: transparent;
-}
-	
+window#waybar.hidden  { opacity: 0.2; }
+window#waybar.empty,
 window#waybar.empty #window {
-   padding: 0px;
-   border: 0px;
-   background-color: transparent;
-} 
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
 
 tooltip {
-	color: @color12;
-	background: rgba(20, 20, 30, 0.85);
-	border-radius: 12px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-	padding: 8px;
+    color: @text-fg;
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.02) 35%,
+            transparent 70%),
+        rgba(15, 15, 23, 0.92);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 8px 28px rgba(0, 0, 0, 0.60);
+    padding: 10px 14px;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Premium Glassmorphic Capsule Layout Rules
+   The liquid-glass capsule — applied to every module
    ────────────────────────────────────────────────────────────── */
 #workspaces,
+#submap,
+#window,
 #clock,
 #pulseaudio,
 #backlight,
@@ -57,121 +69,256 @@ tooltip {
 #cpu,
 #memory,
 #disk,
+#temperature,
 #network,
+#bluetooth,
 #tray,
 #mpris,
+#idle_inhibitor,
+#power-profiles-daemon,
+#keyboard-state,
 #custom-menu,
 #custom-power,
 #custom-swaync,
 #custom-weather,
 #custom-settings,
 #custom-updater,
-#custom-keybinds {
-	background: rgba(15, 15, 23, 0.42); /* Sleek translucent dark glass */
-	border: 1px solid rgba(255, 255, 255, 0.08); /* Clean, thin glass border */
-	border-radius: 14px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-right: 12px;
-	padding-left: 12px;
-	margin-top: 6px;
-	margin-bottom: 6px;
-	margin-left: 4px;
-	margin-right: 4px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35); /* Elegant drop shadow */
-	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+#custom-keybinds,
+#custom-nightlight,
+#custom-netspeed,
+#custom-hypridle,
+#custom-lock,
+#custom-keyboard,
+#custom-tty,
+#custom-browser,
+#custom-quit,
+#custom-reboot,
+#custom-light_dark,
+#custom-file_manager,
+#custom-playerctl,
+#custom-hyprpicker,
+#custom-hint,
+#custom-dot_update {
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(255, 255, 255, 0.04) 38%,
+            rgba(0,   0,   0,   0.06) 72%,
+            rgba(0,   0,   0,   0.12) 100%),
+        rgba(15, 15, 23, 0.55);
+    color: @text-fg;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    padding: 3px 12px;
+    margin: 6px 4px;
+    box-shadow:
+        inset 0  1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(0,   0,   0,   0.30),
+        0 6px 22px rgba(0, 0, 0, 0.55);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-/* Subtle micro-glow border adjustments on active states / hovers */
+/* Hover: brighter glass, deeper glow, subtle accent border */
 #workspaces:hover,
 #clock:hover,
 #pulseaudio:hover,
+#backlight:hover,
 #battery:hover,
 #cpu:hover,
-#memory:hover {
-	border-color: rgba(255, 255, 255, 0.18);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
-	background: rgba(20, 20, 32, 0.52);
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#network:hover,
+#bluetooth:hover,
+#mpris:hover,
+#custom-netspeed:hover,
+#custom-menu:hover,
+#custom-power:hover,
+#custom-swaync:hover,
+#custom-weather:hover,
+#custom-settings:hover,
+#custom-updater:hover,
+#custom-nightlight:hover {
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.20) 0%,
+            rgba(255, 255, 255, 0.06) 40%,
+            rgba(0,   0,   0,   0.04) 75%,
+            rgba(0,   0,   0,   0.10) 100%),
+        rgba(25, 25, 38, 0.70);
+    border-color: rgba(203, 166, 247, 0.45); /* accent */
+    box-shadow:
+        inset 0  1px 0 rgba(255, 255, 255, 0.32),
+        inset 0 -1px 0 rgba(0,   0,   0,   0.30),
+        0 8px 28px rgba(203, 166, 247, 0.20),
+        0 6px 22px rgba(0, 0, 0, 0.60);
 }
 
-/* Workspaces specific pill button designs */
+/* ──────────────────────────────────────────────────────────────
+   Workspaces — pill buttons with accent glow on active
+   ────────────────────────────────────────────────────────────── */
+#workspaces { padding: 3px 6px; }
+
 #workspaces button {
-	color: @text-alt;
-   	box-shadow: none;
-	text-shadow: none;
-   	padding-left: 6px;
-   	padding-right: 6px;
-	margin: 0 2px;
-   	border-radius: 8px;
-   	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-   
-#workspaces button.active {
-	color: whitesmoke;
-	background: rgba(255, 255, 255, 0.15);
-   	border-radius: 8px;
-   	padding-left: 10px;
-   	padding-right: 10px;
-   	transition: all 0.2s ease-in-out;
-}
-  
-#workspaces button.focused {
-	color: whitesmoke;
-}
-   
-#workspaces button.urgent {
-	color: #ff3c3c;
-	background: rgba(255, 60, 60, 0.15);
-	border-radius: 8px;
+    color: @text-dim;
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0 8px;
+    margin: 0 2px;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(.4, 0, .2, 1);
 }
 
 #workspaces button:hover {
-	color: whitesmoke;
-	background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    color: @text-fg;
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.16) 0%,
+            rgba(255, 255, 255, 0.04) 80%),
+        rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
-/* Indicators */
-#custom-hypridle.notactive,
-#idle_inhibitor.activated {
-	color: #39FF14;
-}
-	   
-#battery.critical:not(.charging) {
-	color: @critical;
-	animation-name: blink;
-	animation-duration: 1.5s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+#workspaces button.active {
+    color: #ffffff;
+    background:
+        linear-gradient(180deg,
+            rgba(203, 166, 247, 0.50) 0%,
+            rgba(137, 180, 250, 0.30) 80%),
+        rgba(203, 166, 247, 0.20);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.30),
+        0 0 14px rgba(203, 166, 247, 0.55);
+    padding: 0 12px;
 }
 
+#workspaces button.focused {
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    color: #ffffff;
+    background: rgba(243, 139, 168, 0.30);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 0 14px rgba(243, 139, 168, 0.65);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Module-specific accents
+   ────────────────────────────────────────────────────────────── */
+
+/* Clock — accent foreground so it pops as the primary anchor */
+#clock { color: @accent; }
+
+/* Window title — softer, never wider than its content */
+#window { color: @text-dim; }
+
+/* Battery states */
 #battery.charging {
-	color: #39FF14;
+    color: @success;
+    box-shadow:
+        inset 0  1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(0,   0,   0,   0.30),
+        0 0 18px rgba(166, 227, 161, 0.40),
+        0 6px 22px rgba(0, 0, 0, 0.55);
 }
 
-/* Volume/Backlight Slider Integration */
+#battery.warning:not(.charging) { color: @warning; }
+
+#battery.critical:not(.charging) {
+    color: @critical;
+    animation: blink 1.4s linear infinite alternate;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 0 22px rgba(243, 139, 168, 0.55);
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to   { opacity: 0.55; }
+}
+
+/* Network states */
+#network.disconnected,
+#network.disabled {
+    color: @critical;
+}
+#network.linked        { color: @warning; }
+#network.wifi,
+#network.ethernet     { color: @accent-3; }
+
+/* Bluetooth */
+#bluetooth.connected     { color: @accent-2; }
+#bluetooth.disabled,
+#bluetooth.off           { color: @text-dim; }
+
+/* Temperature */
+#temperature.critical {
+    color: @critical;
+    animation: blink 1.4s linear infinite alternate;
+}
+
+/* Net speed — subtle dim look at idle, brighter for activity */
+#custom-netspeed { color: @text-fg; }
+
+/* Submap — accent glow, only visible when a submap is engaged */
+#submap {
+    color: @accent;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 0 14px rgba(203, 166, 247, 0.45),
+        0 6px 22px rgba(0, 0, 0, 0.55);
+}
+
+/* MPRIS player */
+#mpris.playing { color: @accent; }
+#mpris.paused  { color: @text-dim; }
+
+/* Tray — keep icons crisp, no tint */
+#tray menu {
+    background: rgba(15, 15, 23, 0.94);
+    color: @text-fg;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+    color: @success;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 0 14px rgba(166, 227, 161, 0.45);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Volume / Backlight slider integration
+   ────────────────────────────────────────────────────────────── */
 #backlight-slider slider,
 #pulseaudio-slider slider {
-	min-width: 0px;
-	min-height: 0px;
-	opacity: 0;
-	background-image: none;
-	border: none;
-	box-shadow: none;
+    min-width: 0;
+    min-height: 0;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
 }
 
 #backlight-slider trough,
 #pulseaudio-slider trough {
-	min-width: 80px;  
-	min-height: 8px; 
-	border-radius: 4px;
-	background-color: rgba(0, 0, 0, 0.4);
+    min-width: 80px;
+    min-height: 8px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.45);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55);
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
-	min-height: 8px; 
-	border-radius: 4px;
-	background-color: @color12;
+    min-height: 8px;
+    border-radius: 4px;
+    background:
+        linear-gradient(90deg, @accent-2, @accent);
+    box-shadow: 0 0 8px rgba(203, 166, 247, 0.55);
 }
