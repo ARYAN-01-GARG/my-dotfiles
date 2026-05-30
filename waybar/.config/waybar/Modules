@@ -287,8 +287,8 @@
 	"format-icons": [
 		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
 	],
-	"on-click": "rofi-network-manager",
-	"on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --nmtui"
+	"on-click": "networkmanager_dmenu",
+	"on-click-right": "nm-connection-editor"
 },
 
 "network#speed": {

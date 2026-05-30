@@ -1,4 +1,4 @@
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Aryan's custom layout — aryan-1 */
 
 /* My Mostly Used waybar config incase you wonder :) */
 {
@@ -9,6 +9,7 @@
   "$HOME/.config/waybar/ModulesGroups",
   "$HOME/.config/waybar/UserModules",
   ],
+"output": "eDP-1",
 "layer": "top",
 //"mode": "dock",
 "exclusive": true,
@@ -36,7 +37,7 @@
 	"custom/separator#dot-line",
 	"hyprland/workspaces#rw",
 	"custom/separator#dot-line",
-	"group/notify",	
+	"group/notify",
 	],
 
 "modules-right": [

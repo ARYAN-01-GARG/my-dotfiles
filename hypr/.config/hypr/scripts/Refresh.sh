@@ -32,7 +32,8 @@ pkill qs && qs &
 
 #Restart waybar
 sleep 0.1
-waybar &
+waybar -c $HOME/.config/waybar/config &>/dev/null &
+sleep 1 && waybar -c $HOME/.config/waybar/config-hdmi &>/dev/null &
 
 # relaunch swaync
 sleep 0.3
