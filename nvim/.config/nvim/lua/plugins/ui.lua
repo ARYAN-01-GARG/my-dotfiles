@@ -87,8 +87,8 @@ return {
     },
     opts = {
       options = {
-        close_command = function(n) require("mini.bufremove").delete(n, false) end,
-        right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
+        close_command = function(n) vim.cmd("bdelete! " .. n) end,
+        right_mouse_command = function(n) vim.cmd("bdelete! " .. n) end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,
         offsets = {
