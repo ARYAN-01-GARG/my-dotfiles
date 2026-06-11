@@ -23,21 +23,24 @@ fi
 run_in_term() {
     local title="$1"; shift
     local cmd="$*"
+    # Fixed window class so Hyprland can float every monitor launched here
+    # (see windowrule for com.waybar.SysMonitor in WindowRules.conf).
+    local class="com.waybar.SysMonitor"
     case "$term" in
         ghostty)
-            setsid "$term" --title="$title" -e sh -c "$cmd" >/dev/null 2>&1 &
+            setsid "$term" --class="$class" --title="$title" -e sh -c "$cmd" >/dev/null 2>&1 &
             ;;
         kitty)
-            setsid "$term" --title "$title" sh -c "$cmd" >/dev/null 2>&1 &
+            setsid "$term" --class "$class" --title "$title" sh -c "$cmd" >/dev/null 2>&1 &
             ;;
         alacritty)
-            setsid "$term" --title "$title" -e sh -c "$cmd" >/dev/null 2>&1 &
+            setsid "$term" --class "$class" --title "$title" -e sh -c "$cmd" >/dev/null 2>&1 &
             ;;
         wezterm)
-            setsid "$term" start --always-new-process -- sh -c "$cmd" >/dev/null 2>&1 &
+            setsid "$term" start --class "$class" --always-new-process -- sh -c "$cmd" >/dev/null 2>&1 &
             ;;
         foot|footclient)
-            setsid "$term" --title="$title" sh -c "$cmd" >/dev/null 2>&1 &
+            setsid "$term" --app-id="$class" --title="$title" sh -c "$cmd" >/dev/null 2>&1 &
             ;;
         *)
             setsid "$term" -e sh -c "$cmd" >/dev/null 2>&1 &
