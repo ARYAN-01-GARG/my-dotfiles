@@ -45,7 +45,6 @@
 	"custom/separator#blank",
 	"group/mobo_drawer",
 	"custom/separator#line",
-	"network#speed",
 	"group/connections",
 	"custom/separator#line",
 	"group/audio",
